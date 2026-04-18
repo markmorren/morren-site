@@ -114,8 +114,13 @@ Only do this once you're happy with the preview.
 
 1. Cloudflare dashboard → **Workers & Pages** → `morren-site` → **Custom domains** → **Set up a custom domain**.
 2. Enter `morren.uk`. Cloudflare handles the DNS automatically (since the domain is already in your Cloudflare account).
-3. Also add `www.morren.uk` as a second custom domain — the `_redirects` file in the repo forwards it to the apex.
+3. Also add `www.morren.uk` as a second custom domain.
 4. HTTPS cert issues in ~60 seconds. Test <https://morren.uk>.
+5. Set up the `www` → apex redirect: **Rules → Redirect Rules → Create rule**.
+   - Name: `www to apex`
+   - When: Hostname **equals** `www.morren.uk`
+   - Then: Dynamic, expression `concat("https://morren.uk", http.request.uri.path)`, status **301**, preserve query string **on**.
+   - (Cloudflare Pages `_redirects` does not match on hostname, so the zone-level rule is needed.)
 
 ---
 
