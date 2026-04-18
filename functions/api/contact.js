@@ -27,14 +27,8 @@ export async function onRequestPost({ request, env }) {
     const ip = request.headers.get("CF-Connecting-IP") ?? "";
     const turnstileResult = await verifyTurnstile(env.TURNSTILE_SECRET_KEY, turnstile, ip);
     if (!turnstileResult.success) {
-      const codes = Array.isArray(turnstileResult["error-codes"])
-        ? turnstileResult["error-codes"].join(", ")
-        : "unknown";
-      console.error("Turnstile verification failed:", codes, turnstileResult);
-      return json(
-        { ok: false, error: `Turnstile check failed (${codes}).` },
-        400
-      );
+      console.error("Turnstile verification failed:", turnstileResult);
+      return json({ ok: false, error: "Turnstile check failed. Please try again." }, 400);
     }
 
     const emailResult = await sendEmail(env, { name, email, message });
