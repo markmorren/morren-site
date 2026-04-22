@@ -1,30 +1,44 @@
-# morren-site
+# morren.uk
 
 Source for **[morren.uk](https://morren.uk/)** — Mark Morren's product-showcase site.
 
-Plain HTML, CSS, and a single Cloudflare Pages Function for the contact form. No build step.
+Plain HTML, CSS and one small progressive-enhancement script. No build step, no framework. Deployed from this repo to Cloudflare Pages on every push to `main`.
 
-## How the site is put together
+## Structure
 
-| File | Purpose |
-|---|---|
-| `index.html` | Single-page homepage (hero, work, about, contact) |
-| `privacy.html` | Privacy notice |
-| `styles.css` | Everything visual — tokens at top of file |
-| `script.js` | Fade-in on scroll + contact form submit |
-| `functions/api/contact.js` | Pages Function: validates + sends form via Resend |
-| `_headers` | Security headers + caching for Cloudflare Pages |
-| `_redirects` | www → apex |
-| `screenshots/` | Product screenshots (drop PNGs here) |
+```
+/
+├── index.html       Homepage (Home / About / Work / CV / Contact)
+├── privacy.html     Privacy notice
+├── styles.css       All styling
+├── script.js        Accordion + active-nav
+├── _headers         Cloudflare security headers + CSP
+├── favicon.svg
+├── robots.txt
+├── sitemap.xml
+└── screenshots/     Product screenshots used on /
+```
 
-## Editing copy
+## Local preview
 
-Open `index.html`. All product copy lives in `<article class="product">` blocks — change the text directly and commit.
+Any static file server will do:
 
-## Deploying
+```bash
+cd /path/to/repo
+python3 -m http.server 8080
+# open http://localhost:8080
+```
 
-Pushes to `main` auto-deploy to Cloudflare Pages. Preview URL: `morren-site.pages.dev`.
+Or use `npx serve .`, `wrangler pages dev .`, whatever you have to hand.
 
-## Setup
+## Deploy
 
-First-time setup (Cloudflare Pages, Email Routing, Resend, Turnstile, DNS): see **[SETUP.md](./SETUP.md)**.
+Cloudflare Pages is wired up to auto-deploy this repo on push to `main`.
+
+## Email
+
+`hello@morren.uk` is routed via Cloudflare Email Routing — no mailboxes are hosted on this domain.
+
+## Fonts
+
+Served from Bunny Fonts (GDPR-friendly CDN, no Google) — see the `<link>` in the `<head>` of each HTML file.

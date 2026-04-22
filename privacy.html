@@ -5,52 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy &middot; Morren</title>
   <meta name="description" content="Privacy notice for morren.uk. Plain English. No tracking.">
-  <meta name="theme-color" content="#F7F3EC">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://morren.uk/privacy">
 
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=fraunces:400,500,600&family=inter:400,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=fraunces:400,500,600,700,800,900,400i,500i,600i,700i,800i,900i&family=inter:400,500,600,700&family=jetbrains-mono:400,500&display=swap">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    .legal { max-width: 720px; margin: 0 auto; padding: 96px 48px 120px; }
+    .legal h1 {
+      font-family: var(--font-d);
+      font-weight: 800;
+      font-size: clamp(56px, 9vw, 120px);
+      line-height: .95;
+      letter-spacing: -.04em;
+      margin: 0 0 48px;
+      color: var(--paper);
+      font-variation-settings: "opsz" 144, "wght" 800;
+    }
+    .legal h1 em { font-style: italic; color: var(--accent-br); font-weight: 500; }
+    .legal p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(240, 229, 208, .82);
+      margin: 0 0 20px;
+      max-width: 60ch;
+    }
+    .legal p a { color: var(--accent-br); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .legal .meta {
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--paper-dim);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+    .legal .back { margin-top: 32px; }
+    @media (max-width: 720px) { .legal { padding: 56px 20px 72px; } }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="/" class="wordmark" aria-label="Morren — home">Morren<span class="wordmark-dot">.</span></a>
-      <nav aria-label="Primary">
-        <ul class="nav">
-          <li><a href="/#work">Work</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="nav">
+    <a href="/" class="wm">Morren<span>.</span></a>
+    <nav class="nav-r">
+      <a href="/#top">Home</a>
+      <a href="/#work">Work</a>
+      <a href="/#about">About</a>
+      <a href="/#cv">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
 
-  <main id="main" class="legal wrap">
-    <h1>Privacy</h1>
+  <main class="legal">
+    <h1><em>Privacy.</em></h1>
 
-    <p>When you use the contact form on this site, your name, email address, and message are sent to me so I can reply. I keep what you send only as long as I need to answer you and follow up on anything that comes out of that conversation. I don&rsquo;t use your details for anything else, I don&rsquo;t share them, and I don&rsquo;t put you on any list.</p>
+    <p>There are no advertising or tracking cookies on this site. No log-ins. No analytics that follow you across the internet.</p>
 
-    <p>The site uses <strong>Cloudflare Turnstile</strong> on the contact form to keep spam and abuse out. Turnstile works without cookies and without tracking you across other sites. Cloudflare&rsquo;s own privacy notice covers how that works in more detail.</p>
+    <p>When you email <a href="mailto:hello@morren.uk">hello@morren.uk</a>, I keep what you send only as long as I need to reply and follow up. I don&rsquo;t share it, and I don&rsquo;t put you on any list.</p>
 
-    <p>There are no advertising or tracking cookies on this site. If Cloudflare Web Analytics is enabled, it collects aggregate visit counts without cookies and without any personal data.</p>
+    <p>The site is hosted on Cloudflare Pages. If Cloudflare Web Analytics is enabled at the hosting level, it collects aggregate visit counts &mdash; no cookies, no personal data.</p>
 
-    <p>The site is hosted on Cloudflare Pages. If you want to know what I hold about you, or ask me to delete it, email me and I&rsquo;ll sort it the same week.</p>
+    <p>If you&rsquo;d like to know what I hold about you, or ask me to delete it, email me and I&rsquo;ll sort it the same week.</p>
 
-    <p class="legal-meta">Last updated: <time datetime="2026-04-18">18 April 2026</time>.</p>
+    <p class="meta">Last updated: 22 April 2026</p>
 
-    <p><a href="/">&larr; Back to morren.uk</a></p>
+    <p class="back"><a href="/">&larr; Back to morren.uk</a></p>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>&copy; <span data-year>2026</span> Mark Morren &middot; morren.uk &middot; <a href="/privacy">Privacy</a></p>
-    </div>
+  <footer>
+    <div>Morren &middot; Edinburgh &middot; Est. 1993</div>
+    <div>&copy; 2026 Mark Morren &middot; <a href="/privacy">Privacy</a> &middot; Issue 01</div>
   </footer>
 
-  <script src="/script.js" defer></script>
 </body>
 </html>
