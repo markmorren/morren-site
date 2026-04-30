@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy &middot; Morren</title>
-  <meta name="description" content="Privacy notice for morren.uk and all Morren tools. Plain English. No tracking. UK GDPR compliant.">
+  <meta name="description" content="Privacy notice for morren.uk and all Morren tools. UK GDPR compliant. No cookies. Hosted on Cloudflare. Data Processing Agreements available for schools on request.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://morren.uk/privacy">
+  <link rel="privacy-policy" href="https://morren.uk/privacy">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Notice — Morren",
+    "url": "https://morren.uk/privacy",
+    "description": "UK GDPR privacy notice for morren.uk and all Morren educational tools.",
+    "isPartOf": { "@type": "WebSite", "url": "https://morren.uk" },
+    "about": { "@type": "Thing", "name": "Privacy Policy" }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=fraunces:400,500,600,700,800,900,400i,500i,600i,700i,800i,900i&family=inter:400,500,600,700&family=jetbrains-mono:400,500&display=swap">
@@ -329,6 +341,7 @@
         <hr class="pn-sep">
         <a href="#children">Children&rsquo;s data</a>
         <a href="#special-categories">Special categories</a>
+        <a href="#schools">For schools</a>
         <a href="#processors">Processors</a>
         <a href="#transfers">Transfers</a>
         <a href="#rights">Your rights</a>
@@ -346,7 +359,7 @@
           <p>I&rsquo;m <strong>Mark Morren</strong>, a solo software maker based in Edinburgh. I&rsquo;m the data controller for morren.uk and the tools listed below. I&rsquo;m registered with the Information Commissioner&rsquo;s Office (ICO reg. pending).</p>
           <p>The website collects no cookies and places no trackers. If you email me, I keep your message only as long as I need to reply. That&rsquo;s it for the website.</p>
           <p>The teacher tools collect professional data &mdash; timetable entries, pupil tracking &mdash; entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts.</p>
-          <p>I don&rsquo;t sell data. I don&rsquo;t use it for advertising. I don&rsquo;t share it with third parties except the infrastructure providers listed in <a href="#processors">Section&nbsp;7</a>.</p>
+          <p>I don&rsquo;t sell data. I don&rsquo;t use it for advertising. I don&rsquo;t share it with third parties except the infrastructure providers listed in <a href="#processors">Section&nbsp;8</a>.</p>
           <p>To exercise any data right, email <a href="mailto:hello@morren.uk">hello@morren.uk</a>. Full detail below.</p>
         </div>
 
@@ -402,7 +415,7 @@
           <p><strong>Data collected:</strong> timetable entries you type in &mdash; lesson names, rooms, class group labels. No pupil names. No personal photos.</p>
           <p><strong>Storage:</strong> Cloudflare Workers and KV storage, hosted on Cloudflare&rsquo;s global network. Data is stored against your session and persists until you clear it or it expires.</p>
           <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; a professional tool for school staff managing their own timetable.</p>
-          <p><strong>Transfers:</strong> Cloudflare Inc. is a US company. See <a href="#transfers">Section&nbsp;8</a>.</p>
+          <p><strong>Transfers:</strong> Cloudflare Inc. is a US company. See <a href="#transfers">Section&nbsp;9</a>.</p>
 
           <!-- SFL TRACKER -->
           <h3 id="sfl-tracker">SFL Tracker</h3>
@@ -416,7 +429,7 @@
           </div>
 
           <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) for the tool&rsquo;s operation. Schools rely on their own lawful basis (usually public task, Article 6(1)(e)) for processing pupil data.</p>
-          <p><strong>Transfers:</strong> Cloudflare Inc. for D1 sync. See <a href="#transfers">Section&nbsp;8</a>. LocalStorage-only use involves no transfer.</p>
+          <p><strong>Transfers:</strong> Cloudflare Inc. for D1 sync. See <a href="#transfers">Section&nbsp;9</a>. LocalStorage-only use involves no transfer.</p>
 
           <!-- IPAD DASHBOARD -->
           <h3 id="ipad-dashboard">iPad Dashboard</h3>
@@ -434,7 +447,7 @@
           <p><strong>Data collected:</strong> team member names, task descriptions, school partnership records, workload allocations.</p>
           <p><strong>Storage:</strong> Firebase Realtime Database, project <code>lc-tracker-e0b3f</code>, operated by Google LLC.</p>
           <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; coordinating a small professional team.</p>
-          <p><strong>Transfers:</strong> Firebase is a Google service operated from the US. See <a href="#transfers">Section&nbsp;8</a>.</p>
+          <p><strong>Transfers:</strong> Firebase is a Google service operated from the US. See <a href="#transfers">Section&nbsp;9</a>.</p>
           <p><strong>Team members</strong> are informed of this processing when they join the team.</p>
 
           <!-- CLASS POINTS TRACKER -->
@@ -481,7 +494,38 @@
           <p>If you believe a tool is prompting or encouraging the collection of special category data, please let me know at <a href="mailto:hello@morren.uk">hello@morren.uk</a>.</p>
         </section>
 
-        <!-- SECTION 7: THIRD-PARTY PROCESSORS -->
+        <!-- SECTION 7: FOR SCHOOLS -->
+        <section id="schools">
+          <h2>For <em>schools.</em></h2>
+          <p>Several Morren tools process personal data on behalf of schools. Where this is the case, <strong>the school is the data controller</strong> and Mark Morren acts as a <strong>data processor</strong> under UK GDPR Article 28. This means the school retains control over the data; Mark processes it only on the school&rsquo;s instruction.</p>
+
+          <p>This controller/processor relationship applies to:</p>
+          <ul>
+            <li><strong>Class Points Tracker</strong> &mdash; pupil first names and last initials, stored in Cloudflare D1 (EU infrastructure)</li>
+            <li><strong>SFL Tracker</strong> (cloud sync mode only) &mdash; pupil assessment and SHANARRI data</li>
+          </ul>
+
+          <h3>Data Processing Agreement</h3>
+          <p>A formal <strong>Data Processing Agreement (DPA)</strong> is required before any school formally deploys Class Points Tracker or enables cloud sync on SFL Tracker. The DPA sets out: what data is processed, for what purpose, the retention schedule, deletion obligations, sub-processors used, and the rights of data subjects.</p>
+
+          <div class="data-note">
+            <p>To request a DPA template, email <a href="mailto:hello@morren.uk">hello@morren.uk</a> with the subject line <strong>DPA request</strong>. Mark will respond within five working days. The template is based on UK GDPR Article 28 standard clauses. Schools should have it reviewed by their own DPO before signing.</p>
+          </div>
+
+          <h3>No DPA required for</h3>
+          <ul>
+            <li><strong>Visual TT</strong> &mdash; no pupil personal data is processed</li>
+            <li><strong>iPad Dashboard</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
+            <li><strong>SFL Tracker, localStorage mode</strong> &mdash; data remains on the teacher&rsquo;s device only</li>
+            <li><strong>LC Tracker</strong> &mdash; internal team tool; not used for school-controlled data</li>
+          </ul>
+
+          <h3>Hosting and data residency</h3>
+          <p>morren.uk and all web tools are hosted on <strong>Cloudflare Pages</strong> (Cloudflare, Inc., US). For tools that process the most sensitive data (Class Points Tracker), the database is pinned to <strong>EU infrastructure</strong> via Cloudflare D1&rsquo;s EU jurisdiction setting. No pupil data is routed through US infrastructure.</p>
+          <p>Full details of all processors and transfer safeguards are in <a href="#processors">Section&nbsp;8</a> below.</p>
+        </section>
+
+        <!-- SECTION 8: THIRD-PARTY PROCESSORS -->
         <section id="processors">
           <h2>Third-party <em>processors.</em></h2>
           <p>I use the following companies to provide infrastructure. Each has a Data Processing Agreement in place with me.</p>
@@ -593,7 +637,7 @@
           <p>I review this notice at least annually and whenever a significant change is made to a tool or the way data is processed. The &ldquo;last updated&rdquo; date below shows when this version was published. Where changes are material, I&rsquo;ll post a brief note on morren.uk.</p>
         </section>
 
-        <p class="meta">Last updated: 30 April 2026 &mdash; v2.1 (two-column layout)</p>
+        <p class="meta">Last updated: 30 April 2026 &mdash; v2.2 (schools DPA section; Schema.org)</p>
         <p class="back"><a href="/">&larr; Back to morren.uk</a></p>
       </div><!-- /priv-content -->
 
