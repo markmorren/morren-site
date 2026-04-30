@@ -22,6 +22,21 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  background: var(--brass);
+  color: var(--bg);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top .1s;
+}
+.skip-link:focus { top: 0; }
+
 html, body {
   margin: 0;
   background: var(--bg);
@@ -235,7 +250,7 @@ a { color: inherit; }
 }
 .note-small {
   font-size: 13px !important;
-  color: rgba(240, 229, 208, .45) !important;
+  color: rgba(240, 229, 208, .58) !important;
   margin-top: 4px !important;
 }
 

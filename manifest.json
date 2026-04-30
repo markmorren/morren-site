@@ -1,0 +1,9 @@
+{
+  "name": "Morren",
+  "short_name": "Morren",
+  "description": "Small software for schools, built in Edinburgh.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#0E1612",
+  "background_color": "#0E1612"
+}

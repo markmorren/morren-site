@@ -82,7 +82,7 @@
       padding-left: 14px;
       font-size: 10px;
       letter-spacing: .08em;
-      color: rgba(240, 229, 208, .45);
+      color: rgba(240, 229, 208, .58);
       border-left: 1px solid rgba(240, 229, 208, .12);
       transition: color .15s, border-color .15s;
     }
@@ -308,10 +308,11 @@
   </style>
 </head>
 <body>
+  <a href="#summary" class="skip-link">Skip to main content</a>
 
-  <div class="nav">
-    <a href="/" class="wm">Morren<span>.</span></a>
-    <nav class="nav-r">
+  <div class="nav" role="banner">
+    <a href="/" class="wm" aria-label="Morren — home">Morren<span>.</span></a>
+    <nav class="nav-r" aria-label="Main navigation">
       <a href="/#top">Home</a>
       <a href="/#work">Work</a>
       <a href="/#about">About</a>
@@ -647,7 +648,7 @@
 
   <footer>
     <div>Morren &middot; Edinburgh &middot; Est. 1993</div>
-    <div>&copy; 2026 Mark Morren &middot; <a href="/privacy" rel="privacy-policy">Privacy Notice</a> &middot; <a href="/terms">Terms</a> &middot; Issue 01</div>
+    <div>&copy; 2026 Mark Morren &middot; <a href="/privacy" rel="privacy-policy">Privacy Policy</a> &middot; <a href="/terms">Terms</a> &middot; Issue 01</div>
   </footer>
 
 </body>

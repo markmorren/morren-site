@@ -10,6 +10,11 @@
 
   // ---- Accordion ----
   var accs = document.querySelectorAll('[data-acc]');
+
+  function setExpanded(row, open) {
+    row.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
   accs.forEach(function (acc) {
     var row = acc.querySelector('[data-row]');
     if (!row) return;
@@ -17,11 +22,27 @@
       row.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); });
       return;
     }
-    row.addEventListener('click', function () {
+
+    row.setAttribute('role', 'button');
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('aria-expanded', 'false');
+
+    function toggle() {
       var wasOpen = acc.hasAttribute('data-open');
-      // close all
-      accs.forEach(function (other) { other.removeAttribute('data-open'); });
-      if (!wasOpen) acc.setAttribute('data-open', '');
+      accs.forEach(function (other) {
+        other.removeAttribute('data-open');
+        var r = other.querySelector('[data-row]');
+        if (r && !other.hasAttribute('data-disabled')) setExpanded(r, false);
+      });
+      if (!wasOpen) {
+        acc.setAttribute('data-open', '');
+        setExpanded(row, true);
+      }
+    }
+
+    row.addEventListener('click', toggle);
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   });
 
