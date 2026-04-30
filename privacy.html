@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy &middot; Morren</title>
-  <meta name="description" content="Privacy notice for morren.uk. Plain English. No tracking.">
+  <meta name="description" content="Privacy notice for morren.uk and all Morren tools. Plain English. No tracking. UK GDPR compliant.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://morren.uk/privacy">
 
@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=fraunces:400,500,600,700,800,900,400i,500i,600i,700i,800i,900i&family=inter:400,500,600,700&family=jetbrains-mono:400,500&display=swap">
   <link rel="stylesheet" href="/styles.css">
   <style>
-    .legal { max-width: 720px; margin: 0 auto; padding: 96px 48px 120px; }
+    .legal {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 96px 48px 120px;
+    }
     .legal h1 {
       font-family: var(--font-d);
       font-weight: 800;
@@ -24,26 +28,167 @@
       font-variation-settings: "opsz" 144, "wght" 800;
     }
     .legal h1 em { font-style: italic; color: var(--accent-br); font-weight: 500; }
+    .legal h2 {
+      font-family: var(--font-d);
+      font-weight: 700;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin: 64px 0 20px;
+      color: var(--paper);
+      font-variation-settings: "opsz" 48, "wght" 700;
+      border-top: 1px solid var(--rule);
+      padding-top: 48px;
+    }
+    .legal h2 em { font-style: italic; color: var(--accent-br); font-weight: 500; }
+    .legal h3 {
+      font-family: var(--font-m);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin: 40px 0 12px;
+      padding: 0;
+    }
     .legal p {
-      font-size: 18px;
-      line-height: 1.65;
+      font-size: 17px;
+      line-height: 1.7;
       color: rgba(240, 229, 208, .82);
-      margin: 0 0 20px;
+      margin: 0 0 18px;
       max-width: 60ch;
     }
-    .legal p a { color: var(--accent-br); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .legal p a, .legal li a {
+      color: var(--accent-br);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+    .legal ul {
+      margin: 0 0 18px;
+      padding-left: 24px;
+      max-width: 60ch;
+    }
+    .legal li {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(240, 229, 208, .82);
+      margin: 0 0 6px;
+    }
+    .legal strong { color: var(--paper); font-weight: 600; }
+
+    /* Short notice summary box */
+    .short-notice {
+      background: rgba(240, 229, 208, .06);
+      border: 1px solid rgba(240, 229, 208, .18);
+      border-left: 3px solid var(--accent-br);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin: 0 0 64px;
+    }
+    .short-notice p {
+      font-size: 16px;
+      margin: 0 0 12px;
+    }
+    .short-notice p:last-child { margin: 0; }
+    .short-notice .sn-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent-br);
+      margin: 0 0 16px;
+      display: block;
+    }
+
+    /* Tool URL chip */
+    .tool-url {
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--paper-dim);
+      letter-spacing: .04em;
+      background: rgba(240, 229, 208, .07);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 3px 8px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Data note — controller/processor split callout */
+    .data-note {
+      background: rgba(58, 31, 43, .45);
+      border: 1px solid rgba(179, 138, 76, .25);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .data-note p {
+      font-size: 15px;
+      margin: 0;
+      color: rgba(240, 229, 208, .75);
+    }
+    .data-note strong { color: var(--brass); }
+
+    /* Processor table */
+    .proc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      margin: 0 0 24px;
+    }
+    .proc-table th {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-align: left;
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .proc-table td {
+      padding: 12px 12px 12px 0;
+      border-bottom: 1px solid rgba(240, 229, 208, .07);
+      color: rgba(240, 229, 208, .82);
+      vertical-align: top;
+    }
+    .proc-table tr:last-child td { border-bottom: none; }
+
+    /* Section anchors */
+    .legal [id] { scroll-margin-top: 72px; }
+
+    /* Rights list */
+    .rights-list { list-style: none; padding: 0; margin: 0 0 18px; }
+    .rights-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(240, 229, 208, .08);
+    }
+    .rights-list li:last-child { border-bottom: none; }
+    .rights-list .right-name {
+      font-family: var(--font-m);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      display: block;
+      margin-bottom: 4px;
+    }
+
     .legal .meta {
       font-family: var(--font-m);
       font-size: 12px;
       color: var(--paper-dim);
       letter-spacing: .1em;
       text-transform: uppercase;
-      margin-top: 48px;
+      margin-top: 80px;
       padding-top: 24px;
       border-top: 1px solid var(--rule);
     }
     .legal .back { margin-top: 32px; }
-    @media (max-width: 720px) { .legal { padding: 56px 20px 72px; } }
+    @media (max-width: 720px) {
+      .legal { padding: 56px 20px 72px; }
+      .short-notice { padding: 20px; }
+      .proc-table { font-size: 13px; }
+    }
   </style>
 </head>
 <body>
@@ -62,16 +207,270 @@
   <main class="legal">
     <h1><em>Privacy.</em></h1>
 
-    <p>There are no advertising or tracking cookies on this site. No log-ins. No analytics that follow you across the internet.</p>
+    <!-- ===== SHORT NOTICE ===== -->
+    <div class="short-notice" id="summary">
+      <span class="sn-label">The short version</span>
+      <p>I&rsquo;m <strong>Mark Morren</strong>, a solo software maker based in Edinburgh. I&rsquo;m the data controller for morren.uk and the tools listed below. I&rsquo;m registered with the Information Commissioner&rsquo;s Office (ICO reg. pending).</p>
+      <p>The website collects no cookies and places no trackers. If you email me, I keep your message only as long as I need to reply. That&rsquo;s it for the website.</p>
+      <p>The teacher tools collect professional data — timetable entries, pupil tracking — entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts.</p>
+      <p>I don&rsquo;t sell data. I don&rsquo;t use it for advertising. I don&rsquo;t share it with third parties except the infrastructure providers listed in <a href="#processors">Section&nbsp;7</a>.</p>
+      <p>To exercise any data right, email <a href="mailto:hello@morren.uk">hello@morren.uk</a>. Full detail below.</p>
+    </div>
 
-    <p>When you email <a href="mailto:hello@morren.uk">hello@morren.uk</a>, I keep what you send only as long as I need to reply and follow up. I don&rsquo;t share it, and I don&rsquo;t put you on any list.</p>
+    <!-- ===== SECTION 1: WHO WE ARE ===== -->
+    <section id="who">
+      <h2><em>Who</em> we are.</h2>
+      <p>I&rsquo;m Mark Morren. I design and build small software tools for schools under the Morren name at <a href="https://morren.uk">morren.uk</a>. I work on this as a sole maker alongside my day role as Digital Development Officer for the City of Edinburgh Council.</p>
+      <p><strong>Data Controller:</strong> Mark Morren, Edinburgh, Scotland.<br>
+      <strong>ICO registration:</strong> pending &mdash; registration being confirmed before any public data collection begins.<br>
+      <strong>Contact for privacy matters:</strong> <a href="mailto:hello@morren.uk">hello@morren.uk</a></p>
+      <p>I don&rsquo;t have a Data Protection Officer (not required for a sole trader at this scale), but I use AEGIS &mdash; a specialist data protection adviser &mdash; to review my privacy documentation and practices.</p>
+    </section>
 
-    <p>The site is hosted on Cloudflare Pages. If Cloudflare Web Analytics is enabled at the hosting level, it collects aggregate visit counts &mdash; no cookies, no personal data.</p>
+    <!-- ===== SECTION 2: WHAT THIS COVERS ===== -->
+    <section id="scope">
+      <h2>What this notice <em>covers.</em></h2>
+      <p>This notice applies to:</p>
+      <ul>
+        <li>The morren.uk website itself</li>
+        <li>All publicly accessible Morren web tools (Visual TT, SFL Tracker, iPad Dashboard, LC Tracker, Class Points Tracker)</li>
+        <li>Morren iOS apps (StoryBuilder)</li>
+      </ul>
+      <p>It does <em>not</em> apply to: third-party websites linked from morren.uk; internal tools not publicly accessible; or school information systems that schools manage independently.</p>
+      <p>Where a school deploys a Morren tool and enters data about their staff or pupils, the school is the data controller for that information. This is explained further in each tool&rsquo;s section below.</p>
+    </section>
 
-    <p>If you&rsquo;d like to know what I hold about you, or ask me to delete it, email me and I&rsquo;ll sort it the same week.</p>
+    <!-- ===== SECTION 3: THIS WEBSITE ===== -->
+    <section id="website">
+      <h2>This <em>website.</em></h2>
 
-    <p class="meta">Last updated: 22 April 2026</p>
+      <h3>Contact</h3>
+      <p>The contact link on this site opens your email client with my address (<a href="mailto:hello@morren.uk">hello@morren.uk</a>). Emails go directly to my inbox &mdash; there is no server-side form, no database, and nothing stored outside my email account.</p>
+      <p>I keep what you send only as long as I need to reply and follow up. I don&rsquo;t add you to any list, and I don&rsquo;t share your message.</p>
+      <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; responding to genuine enquiries is a reasonable purpose.</p>
 
+      <h3>Analytics</h3>
+      <p>This site uses <strong>Cloudflare Web Analytics</strong>, which is cookieless and first-party. It tells me how many visits each page gets and which pages are popular. It does not set cookies, does not track you across sites, and collects no personal data.</p>
+      <p>Because no cookies or personal data are involved, no consent banner is required or shown.</p>
+
+      <h3>No cookies</h3>
+      <p>morren.uk places no cookies of any kind. There is nothing to accept or decline.</p>
+    </section>
+
+    <!-- ===== SECTION 4: THE TOOLS ===== -->
+    <section id="tools">
+      <h2>The <em>tools.</em></h2>
+      <p>Each tool is described below with its own data handling summary. The five web tools listed on this site are all free to use by school staff for professional purposes.</p>
+
+      <!-- VISUAL TT -->
+      <h3 id="visual-tt">Visual TT</h3>
+      <span class="tool-url">visualtt.morren.uk</span>
+      <p>Visual TT is a timetable planning tool for school staff. Teachers enter lesson names, room names, class names, and timetable slots to build a visual schedule.</p>
+      <p><strong>Data collected:</strong> timetable entries you type in &mdash; lesson names, rooms, class group labels. No pupil names. No personal photos.</p>
+      <p><strong>Storage:</strong> Cloudflare Workers and KV storage, hosted on Cloudflare&rsquo;s global network. Data is stored against your session and persists until you clear it or it expires.</p>
+      <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; a professional tool for school staff managing their own timetable.</p>
+      <p><strong>Transfers:</strong> Cloudflare Inc. is a US company. See <a href="#transfers">Section&nbsp;8</a>.</p>
+
+      <!-- SFL TRACKER -->
+      <h3 id="sfl-tracker">SFL Tracker</h3>
+      <span class="tool-url">sfl-tracker.morren.uk</span>
+      <p>SFL Tracker is a teacher dashboard for tracking pupil progress against the Scottish Framework for Learning &mdash; assessments (SWST, SWRT, maths), SHANARRI indicators, and intervention records.</p>
+      <p><strong>Data collected:</strong> pupil names (as entered by the teacher), class group, assessment scores, SHANARRI indicators, intervention notes. No photographs, no special category data by design. Surnames are not required and teachers are encouraged to use first name only.</p>
+      <p><strong>Storage:</strong> browser localStorage by default &mdash; data stays on the teacher&rsquo;s device and goes nowhere. An optional cloud sync feature uses Cloudflare D1 (SQLite at the edge) for cross-device access.</p>
+
+      <div class="data-note">
+        <p><strong>Controller/processor note:</strong> For pupil data entered by school staff, the school is the data controller. Mark Morren acts as a data processor only if the optional D1 sync is used. Schools enabling cloud sync should ensure this is covered by their own data protection policies. A data processing agreement template is available on request.</p>
+      </div>
+
+      <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) for the tool&rsquo;s operation. Schools rely on their own lawful basis (usually public task, Article 6(1)(e)) for processing pupil data.</p>
+      <p><strong>Transfers:</strong> Cloudflare Inc. for D1 sync. See <a href="#transfers">Section&nbsp;8</a>. LocalStorage-only use involves no transfer.</p>
+
+      <!-- IPAD DASHBOARD -->
+      <h3 id="ipad-dashboard">iPad Dashboard</h3>
+      <span class="tool-url">ipad-dashboard.morren.uk</span>
+      <p>iPad Dashboard is a fleet management tool for school IT teams. You import a CSV export from your Jamf MDM system and it builds a visual overview of your iPad fleet &mdash; device models, status, school allocation, and provisioning progress.</p>
+      <p><strong>Data collected:</strong> Jamf CSV data you upload &mdash; device names, serial numbers, asset tags, and any user assignment fields in your export (which may include staff names).</p>
+      <p><strong>Storage:</strong> entirely on your device. iPad Dashboard is a single HTML file that processes your CSV locally in the browser using SQLite-WASM. No data is ever sent to any server. I receive nothing.</p>
+      <p><strong>Controller/processor note:</strong> Because I receive no data from this tool, you are the sole data controller for your import. My role is tool provider only.</p>
+      <p><strong>Transfers:</strong> none. The tool is fully offline.</p>
+
+      <!-- LC TRACKER -->
+      <h3 id="lc-tracker">LC Tracker</h3>
+      <span class="tool-url">tracker.morren.uk</span>
+      <p>LC Tracker is an internal team workload and task tracking tool used by me and a small group of colleagues. It is publicly accessible at the URL above but designed for a named team only.</p>
+      <p><strong>Data collected:</strong> team member names, task descriptions, school partnership records, workload allocations.</p>
+      <p><strong>Storage:</strong> Firebase Realtime Database, project <code>lc-tracker-e0b3f</code>, operated by Google LLC.</p>
+      <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; coordinating a small professional team.</p>
+      <p><strong>Transfers:</strong> Firebase is a Google service operated from the US. See <a href="#transfers">Section&nbsp;8</a>.</p>
+      <p><strong>Team members</strong> are informed of this processing when they join the team.</p>
+
+      <!-- CLASS POINTS TRACKER -->
+      <h3 id="class-points-tracker">Class Points Tracker</h3>
+      <span class="tool-url">points.morren.uk</span>
+      <p>Class Points Tracker is a classroom behaviour and reward tool that lets teachers award points to groups and maintain a class leaderboard. It is currently in development; when it launches, this section will be updated.</p>
+
+      <p><strong>Teacher data:</strong> email address (used for magic-link sign-in), and a display name you choose. Your email is used to send you a sign-in link each time you log in &mdash; nothing else.</p>
+
+      <p><strong>Pupil data:</strong> first name and last initial only, plus a randomly generated avatar seed (a short string used to produce a consistent visual &mdash; no photograph). Points totals. That&rsquo;s all.</p>
+      <p>The following data is <em>deliberately not collected</em>: full surnames, dates of birth, photographs, SEND information, free school meal status, ethnicity, or any other special category data.</p>
+      <p>Pupils do not have accounts. They do not log in.</p>
+
+      <div class="data-note">
+        <p><strong>Controller/processor note:</strong> For pupil data, <strong>the school is the data controller</strong>. Mark Morren acts as a data processor, processing pupil data only on the school&rsquo;s instruction. A formal Data Processing Agreement must be in place before any school formally onboards to Class Points Tracker. Contact <a href="mailto:hello@morren.uk">hello@morren.uk</a> to arrange this.</p>
+      </div>
+
+      <p><strong>Storage:</strong> Cloudflare D1 (SQLite), pinned to EU data centres. Email delivery (magic links) via Brevo, an EU-based email provider.</p>
+      <p><strong>Retention:</strong> active data is retained while your account is active. Data is archived on 31 July each year (end of the Scottish academic year). Archived data is permanently deleted 13 months after the archive date &mdash; around 31 August the following year. You can request deletion of your data at any time.</p>
+      <p><strong>Lawful basis (teacher data):</strong> Legitimate interests (Article 6(1)(f)) &mdash; a professional tool for teachers managing their own classroom. For pupil data, the school provides the lawful basis under their own data protection policies.</p>
+
+      <!-- STORYBUILDER -->
+      <h3 id="storybuilder">StoryBuilder (iOS)</h3>
+      <p>StoryBuilder is a creative writing app for iOS, currently available via TestFlight for beta testers.</p>
+      <p><strong>Data collected by me:</strong> none. All stories and content you create in StoryBuilder are stored on your device and, if you have iCloud enabled, in your personal iCloud account. I have no access to content created in the app.</p>
+      <p>If a school deploys StoryBuilder through Apple School Manager or MDM, the school manages the iCloud and data context for their pupils. Apple&rsquo;s privacy policy governs iCloud sync.</p>
+    </section>
+
+    <!-- ===== SECTION 5: CHILDREN'S DATA ===== -->
+    <section id="children">
+      <h2><em>Children&rsquo;s</em> data.</h2>
+      <p>Several tools are used in schools, where children&rsquo;s data may be processed. I have designed these tools with children&rsquo;s privacy as a first concern:</p>
+      <ul>
+        <li>Pupils do not have accounts in any Morren tool.</li>
+        <li>Where pupil data is entered by a teacher, only the minimum necessary is collected &mdash; typically first name and a class group.</li>
+        <li>No photographs, biometric data, dates of birth, or special category data about children is collected by any Morren tool.</li>
+        <li>The school is the data controller for pupil data in tools where a cloud sync or storage feature is used. I act as a processor under the school&rsquo;s instructions.</li>
+      </ul>
+      <p>These principles reflect the spirit of the UK Information Commissioner&rsquo;s Children&rsquo;s Code (Age Appropriate Design Code), even where the tools are designed for teacher use rather than direct pupil access.</p>
+    </section>
+
+    <!-- ===== SECTION 6: SPECIAL CATEGORY DATA ===== -->
+    <section id="special-categories">
+      <h2>Special category <em>data.</em></h2>
+      <p>None of the Morren tools are designed to collect special category data &mdash; health information, ethnicity, religion, biometric data, or similar. If a teacher enters free-text notes that happen to include such information, it is their responsibility to ensure this is covered by their school&rsquo;s data protection policies.</p>
+      <p>If you believe a tool is prompting or encouraging the collection of special category data, please let me know at <a href="mailto:hello@morren.uk">hello@morren.uk</a>.</p>
+    </section>
+
+    <!-- ===== SECTION 7: THIRD-PARTY PROCESSORS ===== -->
+    <section id="processors">
+      <h2>Third-party <em>processors.</em></h2>
+      <p>I use the following companies to provide infrastructure. Each has a Data Processing Agreement in place with me.</p>
+
+      <table class="proc-table">
+        <thead>
+          <tr>
+            <th>Processor</th>
+            <th>Role</th>
+            <th>Data involved</th>
+            <th>Location</th>
+            <th>Safeguard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cloudflare, Inc.</strong></td>
+            <td>Hosting, CDN, Workers, D1 database, KV storage, Web Analytics</td>
+            <td>Traffic metrics (morren.uk); timetable data (Visual TT); pupil tracking data (SFL Tracker, D1 sync); teacher + pupil data (Class Points Tracker)</td>
+            <td>US company; EU infrastructure used for D1 (Class Points Tracker)</td>
+            <td>UK-US Data Bridge; Cloudflare DPA</td>
+          </tr>
+          <tr>
+            <td><strong>Google Firebase</strong></td>
+            <td>Realtime database</td>
+            <td>Team workload data (LC Tracker)</td>
+            <td>US (Google LLC)</td>
+            <td>UK-US Data Bridge; Google Cloud DPA</td>
+          </tr>
+          <tr>
+            <td><strong>Brevo (Sendinblue)</strong></td>
+            <td>Transactional email delivery</td>
+            <td>Teacher email addresses (Class Points Tracker magic links)</td>
+            <td>EU (France)</td>
+            <td>EU adequacy; Brevo DPA</td>
+          </tr>
+          <tr>
+            <td><strong>Apple Inc.</strong></td>
+            <td>iOS app distribution; iCloud sync</td>
+            <td>StoryBuilder on-device data (managed by user&rsquo;s own iCloud account)</td>
+            <td>US (Apple Inc.)</td>
+            <td>UK-US Data Bridge; Apple DPA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>No data is sold, rented, or shared with any third party for their own purposes. No advertising networks. No data brokers.</p>
+    </section>
+
+    <!-- ===== SECTION 8: INTERNATIONAL TRANSFERS ===== -->
+    <section id="transfers">
+      <h2>International <em>transfers.</em></h2>
+      <p>Some of the processors above are US companies. Under UK GDPR, transfers of personal data outside the UK require appropriate safeguards.</p>
+      <ul>
+        <li><strong>Cloudflare, Firebase, Apple:</strong> covered by the UK-US Data Bridge, where applicable. Cloudflare&rsquo;s D1 database for Class Points Tracker is pinned to EU infrastructure, avoiding a UK-to-US transfer for the most sensitive data.</li>
+        <li><strong>Brevo:</strong> EU-based. No transfer outside the EU/UK.</li>
+        <li><strong>iPad Dashboard:</strong> no transfers at all (fully offline).</li>
+        <li><strong>SFL Tracker, localStorage mode:</strong> no transfers (data stays on the teacher&rsquo;s device).</li>
+      </ul>
+      <p>I have reviewed each processor against the ICO&rsquo;s transfer risk assessment guidance and maintain records of these assessments.</p>
+    </section>
+
+    <!-- ===== SECTION 9: YOUR RIGHTS ===== -->
+    <section id="rights">
+      <h2>Your <em>rights.</em></h2>
+      <p>Under UK GDPR, you have the following rights in relation to your personal data. To exercise any of them, email <a href="mailto:hello@morren.uk">hello@morren.uk</a>. I will respond within one calendar month.</p>
+
+      <ul class="rights-list">
+        <li>
+          <span class="right-name">Right of access</span>
+          You can ask what personal data I hold about you and receive a copy of it.
+        </li>
+        <li>
+          <span class="right-name">Right to rectification</span>
+          You can ask me to correct inaccurate data or complete incomplete data.
+        </li>
+        <li>
+          <span class="right-name">Right to erasure</span>
+          You can ask me to delete your personal data. I will do so unless there is a legitimate reason to retain it (for example, an ongoing legal obligation).
+        </li>
+        <li>
+          <span class="right-name">Right to restriction</span>
+          You can ask me to pause processing your data while a concern is being investigated.
+        </li>
+        <li>
+          <span class="right-name">Right to data portability</span>
+          Where processing is automated and based on consent or contract, you can ask for your data in a machine-readable format.
+        </li>
+        <li>
+          <span class="right-name">Right to object</span>
+          Where I rely on legitimate interests as a lawful basis, you can object to that processing. I will stop unless I can demonstrate compelling legitimate grounds.
+        </li>
+        <li>
+          <span class="right-name">Automated decision-making</span>
+          None of the Morren tools make automated decisions with legal or otherwise significant effects on individuals.
+        </li>
+      </ul>
+
+      <p><strong>Pupil data rights:</strong> where data about a child is processed on a school&rsquo;s instruction (Class Points Tracker, SFL Tracker D1 sync), the school is the data controller. Rights requests relating to pupils should be directed to the school in the first instance.</p>
+    </section>
+
+    <!-- ===== SECTION 10: COMPLAINTS ===== -->
+    <section id="complaints">
+      <h2><em>Complaints.</em></h2>
+      <p>If you&rsquo;re unhappy with how I&rsquo;ve handled your data, please email <a href="mailto:hello@morren.uk">hello@morren.uk</a> first &mdash; I&rsquo;d always rather sort things directly.</p>
+      <p>If you&rsquo;re not satisfied with my response, you have the right to complain to the <strong>Information Commissioner&rsquo;s Office (ICO)</strong>:</p>
+      <ul>
+        <li>Website: <a href="https://ico.org.uk">ico.org.uk</a></li>
+        <li>Phone: 0303&nbsp;123&nbsp;1113</li>
+        <li>Post: Information Commissioner&rsquo;s Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</li>
+      </ul>
+    </section>
+
+    <!-- ===== SECTION 11: CHANGES ===== -->
+    <section id="changes">
+      <h2><em>Changes</em> to this notice.</h2>
+      <p>I review this notice at least annually and whenever a significant change is made to a tool or the way data is processed. The &ldquo;last updated&rdquo; date below shows when this version was published. Where changes are material, I&rsquo;ll post a brief note on morren.uk.</p>
+    </section>
+
+    <p class="meta">Last updated: 30 April 2026 &mdash; v2.0 (full tool coverage)</p>
     <p class="back"><a href="/">&larr; Back to morren.uk</a></p>
   </main>
 
