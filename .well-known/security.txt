@@ -1,0 +1,4 @@
+Contact: mailto:hello@morren.uk
+Expires: 2027-04-30T23:59:00.000Z
+Preferred-Languages: en
+Policy: https://morren.uk/privacy

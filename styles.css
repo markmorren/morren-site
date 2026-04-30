@@ -233,6 +233,11 @@ a { color: inherit; }
   color: inherit;
   margin: 0 0 14px;
 }
+.note-small {
+  font-size: 13px !important;
+  color: rgba(240, 229, 208, .45) !important;
+  margin-top: 4px !important;
+}
 
 .about .strip {
   display: grid;
