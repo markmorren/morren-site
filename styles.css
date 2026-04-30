@@ -302,19 +302,19 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: 80px 1.2fr 130px 1fr 40px;
   gap: 28px;
-  padding: 26px 0;
+  padding: 26px 0 26px 16px;
   align-items: baseline;
   cursor: pointer;
   transition: background .2s, padding .2s;
 }
 .acc .row:hover {
   background: rgba(184, 86, 47, .06);
-  padding-left: 12px;
+  padding-left: 24px;
   padding-right: 12px;
 }
 .acc[data-open] .row {
   background: rgba(184, 86, 47, .08);
-  padding-left: 12px;
+  padding-left: 24px;
   padding-right: 12px;
   border-bottom: 1px solid var(--rule);
 }
@@ -357,7 +357,7 @@ a { color: inherit; }
 
 .acc.disabled { opacity: .42; }
 .acc.disabled .row { cursor: not-allowed; }
-.acc.disabled .row:hover { background: transparent; padding-left: 0; padding-right: 0; }
+.acc.disabled .row:hover { background: transparent; padding-left: 16px; padding-right: 0; }
 .acc.disabled .row .go { color: var(--paper-dim); font-size: 22px; }
 
 .panel {
@@ -497,11 +497,19 @@ a { color: inherit; }
 .panel-body .meta dd a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
 
 .panel-shots {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  overflow-x: auto;
   gap: 24px;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
 }
-.shot-wrap { display: flex; flex-direction: column; gap: 12px; }
+.shot-wrap {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .shot {
   aspect-ratio: 4/3;
   border: 1px solid rgba(26, 22, 18, .18);
@@ -546,7 +554,7 @@ a { color: inherit; }
       "st st st"
       "d d d";
     gap: 6px 16px;
-    padding: 20px 0;
+    padding: 20px 0 20px 12px;
   }
   .acc .row .n { grid-area: n; }
   .acc .row .t { grid-area: t; }
@@ -555,7 +563,14 @@ a { color: inherit; }
   .acc .row .d { grid-area: d; font-size: 14px; }
   .panel-inner { padding: 32px 20px; margin: 0 -20px; }
   .panel-body { grid-template-columns: 1fr; gap: 24px; }
-  .panel-shots { grid-template-columns: 1fr; }
+  .panel-shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+  .shot-wrap { flex: unset; }
 }
 
 /* ============ CV ============ */
