@@ -370,7 +370,7 @@ a { color: inherit; }
 .panel-inner {
   background: var(--paper);
   color: var(--ink);
-  padding: 56px 48px;
+  padding: 56px 48px 56px 64px;
   margin: 0 -48px;
   border-top: 1px solid rgba(26, 22, 18, .1);
 }
@@ -561,7 +561,7 @@ a { color: inherit; }
   .acc .row .go { grid-area: go; }
   .acc .row .st { grid-area: st; }
   .acc .row .d { grid-area: d; font-size: 14px; }
-  .panel-inner { padding: 32px 20px; margin: 0 -20px; }
+  .panel-inner { padding: 32px 20px 32px 32px; margin: 0 -20px; }
   .panel-body { grid-template-columns: 1fr; gap: 24px; }
   .panel-shots {
     display: grid;
