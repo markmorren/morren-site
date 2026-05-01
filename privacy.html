@@ -359,7 +359,7 @@
           <span class="sn-label">The short version</span>
           <p>I&rsquo;m <strong>Mark Morren</strong>, a solo software maker based in Edinburgh. I&rsquo;m the data controller for morren.uk and the tools listed below. I&rsquo;m registered with the Information Commissioner&rsquo;s Office (ICO reg. pending).</p>
           <p>The website collects no cookies and places no trackers. If you email me, I keep your message only as long as I need to reply. That&rsquo;s it for the website.</p>
-          <p>The teacher tools collect professional data &mdash; timetable entries, pupil tracking &mdash; entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts.</p>
+          <p>The teacher tools collect professional data &mdash; timetable entries, pupil tracking &mdash; entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts. Most tools store data entirely on your device; only Class Points Tracker and Visual TT use server-side storage.</p>
           <p>I don&rsquo;t sell data. I don&rsquo;t use it for advertising. I don&rsquo;t share it with third parties except the infrastructure providers listed in <a href="#processors">Section&nbsp;8</a>.</p>
           <p>To exercise any data right, email <a href="mailto:hello@morren.uk">hello@morren.uk</a>. Full detail below.</p>
         </div>
@@ -415,7 +415,7 @@
           <span class="tool-url">visualtt.morren.uk</span>
           <p>Visual TT is a timetable planning tool for school staff. Teachers enter lesson names, room names, class names, and timetable slots to build a visual schedule.</p>
           <p><strong>Data collected:</strong> timetable entries you type in &mdash; lesson names, rooms, class group labels. No pupil names. No personal photos.</p>
-          <p><strong>Storage:</strong> Cloudflare Workers and KV storage, hosted on Cloudflare&rsquo;s global network. Data is stored against your session and persists until you clear it or it expires.</p>
+          <p><strong>Storage:</strong> Cloudflare Workers and KV storage, hosted on Cloudflare&rsquo;s global network. Data is stored against your session and persists until you clear it or it expires. The app includes a service worker for offline use &mdash; timetable data is cached locally so the app works without a connection after the first visit. A JSON backup/restore option is available in Settings.</p>
           <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) &mdash; a professional tool for school staff managing their own timetable.</p>
           <p><strong>Transfers:</strong> Cloudflare Inc. is a US company. See <a href="#transfers">Section&nbsp;9</a>.</p>
 
@@ -424,14 +424,14 @@
           <span class="tool-url">sfl-tracker.morren.uk</span>
           <p>SFL Tracker is a teacher dashboard for tracking pupil progress against the Scottish Framework for Learning &mdash; assessments (SWST, SWRT, maths), SHANARRI indicators, and intervention records.</p>
           <p><strong>Data collected:</strong> pupil names (as entered by the teacher), class group, assessment scores, SHANARRI indicators, intervention notes. No photographs, no special category data by design. Surnames are not required and teachers are encouraged to use first name only.</p>
-          <p><strong>Storage:</strong> browser localStorage by default &mdash; data stays on the teacher&rsquo;s device and goes nowhere. An optional cloud sync feature uses Cloudflare D1 (SQLite at the edge) for cross-device access.</p>
-
-          <div class="data-note">
-            <p><strong>Controller/processor note:</strong> For pupil data entered by school staff, the school is the data controller. Mark Morren acts as a data processor only if the optional D1 sync is used. Schools enabling cloud sync should ensure this is covered by their own data protection policies. A data processing agreement template is available on request.</p>
-          </div>
+          <p><strong>Storage:</strong> entirely on your device. SFL Tracker uses sql.js WebAssembly SQLite &mdash; all data is held in a portable .db file that never leaves your machine. No data is ever sent to any server. To move data between Macs, save the .db file to iCloud Drive or SharePoint; the sync happens through your own cloud storage, not through Morren infrastructure.</p>
 
           <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) for the tool&rsquo;s operation. Schools rely on their own lawful basis (usually public task, Article 6(1)(e)) for processing pupil data.</p>
-          <p><strong>Transfers:</strong> Cloudflare Inc. for D1 sync. See <a href="#transfers">Section&nbsp;9</a>. LocalStorage-only use involves no transfer.</p>
+          <p><strong>Transfers:</strong> none. SFL Tracker is fully offline &mdash; no pupil data is ever transmitted to or held by Mark Morren.</p>
+
+          <div class="data-note">
+            <p><strong>Controller/processor note:</strong> Because no data from SFL Tracker is received by Mark Morren, the school or individual teacher is the sole data controller for all data entered. Mark Morren&rsquo;s role is tool provider only.</p>
+          </div>
 
           <!-- IPAD DASHBOARD -->
           <h3 id="ipad-dashboard">iPad Dashboard</h3>
@@ -504,11 +504,10 @@
           <p>This controller/processor relationship applies to:</p>
           <ul>
             <li><strong>Class Points Tracker</strong> &mdash; pupil first names and last initials, stored in Cloudflare D1 (EU infrastructure)</li>
-            <li><strong>SFL Tracker</strong> (cloud sync mode only) &mdash; pupil assessment and SHANARRI data</li>
           </ul>
 
           <h3>Data Processing Agreement</h3>
-          <p>A formal <strong>Data Processing Agreement (DPA)</strong> is required before any school formally deploys Class Points Tracker or enables cloud sync on SFL Tracker. The DPA sets out: what data is processed, for what purpose, the retention schedule, deletion obligations, sub-processors used, and the rights of data subjects.</p>
+          <p>A formal <strong>Data Processing Agreement (DPA)</strong> is required before any school formally deploys Class Points Tracker. The DPA sets out: what data is processed, for what purpose, the retention schedule, deletion obligations, sub-processors used, and the rights of data subjects.</p>
 
           <div class="data-note">
             <p>To request a DPA template, email <a href="mailto:hello@morren.uk">hello@morren.uk</a> with the subject line <strong>DPA request</strong>. Mark will respond within five working days. The template is based on UK GDPR Article 28 standard clauses. Schools should have it reviewed by their own DPO before signing.</p>
@@ -518,7 +517,7 @@
           <ul>
             <li><strong>Visual TT</strong> &mdash; no pupil personal data is processed</li>
             <li><strong>iPad Dashboard</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
-            <li><strong>SFL Tracker, localStorage mode</strong> &mdash; data remains on the teacher&rsquo;s device only</li>
+            <li><strong>SFL Tracker</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
             <li><strong>LC Tracker</strong> &mdash; internal team tool; not used for school-controlled data</li>
           </ul>
 
@@ -546,7 +545,7 @@
               <tr>
                 <td><strong>Cloudflare, Inc.</strong></td>
                 <td>Hosting, CDN, Workers, D1 database, KV storage, Web Analytics</td>
-                <td>Traffic metrics (morren.uk); timetable data (Visual TT); pupil tracking data (SFL Tracker, D1 sync); teacher and pupil data (Class Points Tracker)</td>
+                <td>Traffic metrics (morren.uk); timetable data (Visual TT); teacher and pupil data (Class Points Tracker)</td>
                 <td>US company; EU infrastructure used for D1 (Class Points Tracker)</td>
                 <td>UK-US Data Bridge; Cloudflare DPA</td>
               </tr>
@@ -577,7 +576,7 @@
           <ul>
             <li><strong>Cloudflare, Firebase, Apple:</strong> covered by the UK-US Data Bridge, where applicable. Cloudflare&rsquo;s D1 database for Class Points Tracker is pinned to EU infrastructure, avoiding a UK-to-US transfer for the most sensitive data.</li>
             <li><strong>iPad Dashboard:</strong> no transfers at all (fully offline).</li>
-            <li><strong>SFL Tracker, localStorage mode:</strong> no transfers (data stays on the teacher&rsquo;s device).</li>
+            <li><strong>SFL Tracker:</strong> no transfers. Fully offline &mdash; data stays in a local .db file on the teacher&rsquo;s device.</li>
           </ul>
           <p>I have reviewed each processor against the ICO&rsquo;s transfer risk assessment guidance and maintain records of these assessments.</p>
         </section>
@@ -618,7 +617,7 @@
             </li>
           </ul>
 
-          <p><strong>Pupil data rights:</strong> where data about a child is processed on a school&rsquo;s instruction (Class Points Tracker, SFL Tracker D1 sync), the school is the data controller. Rights requests relating to pupils should be directed to the school in the first instance.</p>
+          <p><strong>Pupil data rights:</strong> where data about a child is processed on a school&rsquo;s instruction (Class Points Tracker), the school is the data controller. Rights requests relating to pupils should be directed to the school in the first instance.</p>
         </section>
 
         <!-- SECTION 10: COMPLAINTS -->
@@ -639,7 +638,7 @@
           <p>I review this notice at least annually and whenever a significant change is made to a tool or the way data is processed. The &ldquo;last updated&rdquo; date below shows when this version was published. Where changes are material, I&rsquo;ll post a brief note on morren.uk.</p>
         </section>
 
-        <p class="meta">Last updated: 30 April 2026 &mdash; v2.3 (terms page; security.txt; personal project clarification)</p>
+        <p class="meta">Last updated: 1 May 2026 &mdash; v2.4 (SFL Tracker migrated to on-device SQLite; Visual TT offline support)</p>
         <p class="back"><a href="/">&larr; Back to morren.uk</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms of Use</a></p>
       </div><!-- /priv-content -->
 
