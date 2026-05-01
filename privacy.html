@@ -359,7 +359,7 @@
           <span class="sn-label">The short version</span>
           <p>I&rsquo;m <strong>Mark Morren</strong>, a solo software maker based in Edinburgh. I&rsquo;m the data controller for morren.uk and the tools listed below. I&rsquo;m registered with the Information Commissioner&rsquo;s Office (ICO reg. pending).</p>
           <p>The website collects no cookies and places no trackers. If you email me, I keep your message only as long as I need to reply. That&rsquo;s it for the website.</p>
-          <p>The teacher tools collect professional data &mdash; timetable entries, pupil tracking &mdash; entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts. Most tools store data entirely on your device; only Class Points Tracker and Visual TT use server-side storage.</p>
+          <p>The teacher tools collect professional data &mdash; timetable entries, pupil tracking &mdash; entered by school staff for their own use. Where children&rsquo;s data is involved, I&rsquo;ve designed the tools to collect the minimum possible. Pupils don&rsquo;t have accounts. Most tools store data entirely on your device; only Visual TT uses server-side storage.</p>
           <p>I don&rsquo;t sell data. I don&rsquo;t use it for advertising. I don&rsquo;t share it with third parties except the infrastructure providers listed in <a href="#processors">Section&nbsp;8</a>.</p>
           <p>To exercise any data right, email <a href="mailto:hello@morren.uk">hello@morren.uk</a>. Full detail below.</p>
         </div>
@@ -455,19 +455,17 @@
           <!-- CLASS POINTS TRACKER -->
           <h3 id="class-points-tracker">Class Points Tracker</h3>
           <span class="tool-url">points.morren.uk</span>
-          <p>Class Points Tracker is a classroom behaviour and reward tool that lets teachers award points to groups and maintain a class leaderboard. It is currently in development; when it launches, this section will be updated.</p>
-          <p><strong>Teacher data:</strong> email address (used for magic-link sign-in), and a display name you choose. Your email is used to send you a sign-in link each time you log in &mdash; nothing else.</p>
-          <p><strong>Pupil data:</strong> first name and last initial only, plus a randomly generated avatar seed (a short string used to produce a consistent visual &mdash; no photograph). Points totals. That&rsquo;s all.</p>
-          <p>The following data is <em>deliberately not collected</em>: full surnames, dates of birth, photographs, SEND information, free school meal status, ethnicity, or any other special category data.</p>
-          <p>Pupils do not have accounts. They do not log in.</p>
+          <p>Class Points Tracker is a classroom behaviour and reward tool that lets teachers award points to groups and maintain a class leaderboard.</p>
+          <p><strong>Data collected:</strong> pupil display names (first name and last initial only, e.g. &ldquo;Alex J.&rdquo;) and points totals. No email addresses, no accounts, no photographs, no dates of birth, no special category data.</p>
+          <p>Pupils do not have accounts. They do not log in. Teachers do not have accounts.</p>
+          <p><strong>Storage:</strong> entirely on your device. Class Points Tracker uses sql.js WebAssembly SQLite &mdash; all data is held in a portable .db file that never leaves your machine. The board view (projector display) communicates with the teacher view via BroadcastChannel &mdash; tab-to-tab in the browser, no server involved.</p>
+          <p><strong>Transfers:</strong> none. Class Points Tracker is fully offline &mdash; no data is ever transmitted to or held by Mark Morren.</p>
 
           <div class="data-note">
-            <p><strong>Controller/processor note:</strong> For pupil data, <strong>the school is the data controller</strong>. Mark Morren acts as a data processor, processing pupil data only on the school&rsquo;s instruction. A formal Data Processing Agreement must be in place before any school formally onboards to Class Points Tracker. Contact <a href="mailto:hello@morren.uk">hello@morren.uk</a> to arrange this.</p>
+            <p><strong>Controller/processor note:</strong> Because no data from Class Points Tracker is received by Mark Morren, the school or individual teacher is the sole data controller for all data entered. Mark Morren&rsquo;s role is tool provider only.</p>
           </div>
 
-          <p><strong>Storage:</strong> Cloudflare D1 (SQLite), pinned to EU data centres.</p>
-          <p><strong>Retention:</strong> active data is retained while your account is active. Data is archived on 31 July each year (end of the Scottish academic year). Archived data is permanently deleted 13 months after the archive date &mdash; around 31 August the following year. You can request deletion of your data at any time.</p>
-          <p><strong>Lawful basis (teacher data):</strong> Legitimate interests (Article 6(1)(f)) &mdash; a professional tool for teachers managing their own classroom. For pupil data, the school provides the lawful basis under their own data protection policies.</p>
+          <p><strong>Lawful basis:</strong> Legitimate interests (Article 6(1)(f)) for the tool&rsquo;s operation. Schools rely on their own lawful basis (usually public task, Article 6(1)(e)) for processing pupil data.</p>
 
           <!-- STORYBUILDER -->
           <h3 id="storybuilder">StoryBuilder (iOS)</h3>
@@ -484,7 +482,7 @@
             <li>Pupils do not have accounts in any Morren tool.</li>
             <li>Where pupil data is entered by a teacher, only the minimum necessary is collected &mdash; typically first name and a class group.</li>
             <li>No photographs, biometric data, dates of birth, or special category data about children is collected by any Morren tool.</li>
-            <li>The school is the data controller for pupil data in tools where a cloud sync or storage feature is used. I act as a processor under the school&rsquo;s instructions.</li>
+            <li>All Morren tools store pupil data locally on the teacher&rsquo;s device. No tool currently transmits pupil data to Morren infrastructure.</li>
           </ul>
           <p>These principles reflect the spirit of the UK Information Commissioner&rsquo;s Children&rsquo;s Code (Age Appropriate Design Code), even where the tools are designed for teacher use rather than direct pupil access.</p>
         </section>
@@ -501,28 +499,22 @@
           <h2>For <em>schools.</em></h2>
           <p>Several Morren tools process personal data on behalf of schools. Where this is the case, <strong>the school is the data controller</strong> and Mark Morren acts as a <strong>data processor</strong> under UK GDPR Article 28. This means the school retains control over the data; Mark processes it only on the school&rsquo;s instruction.</p>
 
-          <p>This controller/processor relationship applies to:</p>
-          <ul>
-            <li><strong>Class Points Tracker</strong> &mdash; pupil first names and last initials, stored in Cloudflare D1 (EU infrastructure)</li>
-          </ul>
+          <p>All current Morren tools store data locally on the teacher&rsquo;s device. No tool currently requires a controller/processor relationship. This section will be updated if a cloud-backed tool is introduced.</p>
 
           <h3>Data Processing Agreement</h3>
-          <p>A formal <strong>Data Processing Agreement (DPA)</strong> is required before any school formally deploys Class Points Tracker. The DPA sets out: what data is processed, for what purpose, the retention schedule, deletion obligations, sub-processors used, and the rights of data subjects.</p>
-
-          <div class="data-note">
-            <p>To request a DPA template, email <a href="mailto:hello@morren.uk">hello@morren.uk</a> with the subject line <strong>DPA request</strong>. Mark will respond within five working days. The template is based on UK GDPR Article 28 standard clauses. Schools should have it reviewed by their own DPO before signing.</p>
-          </div>
+          <p>No DPA is currently required for any Morren tool, as no tool transmits or stores personal data on Morren&rsquo;s infrastructure. If a cloud-backed tool is introduced in future, a DPA will be required before any school formally deploys it. Contact <a href="mailto:hello@morren.uk">hello@morren.uk</a> with any questions.</p>
 
           <h3>No DPA required for</h3>
           <ul>
             <li><strong>Visual TT</strong> &mdash; no pupil personal data is processed</li>
             <li><strong>iPad Dashboard</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
             <li><strong>SFL Tracker</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
+            <li><strong>Class Points Tracker</strong> &mdash; fully offline; no data is ever transmitted to or held by Mark Morren</li>
             <li><strong>LC Tracker</strong> &mdash; internal team tool; not used for school-controlled data</li>
           </ul>
 
           <h3>Hosting and data residency</h3>
-          <p>morren.uk and all web tools are hosted on <strong>Cloudflare Pages</strong> (Cloudflare, Inc., US). For tools that process the most sensitive data (Class Points Tracker), the database is pinned to <strong>EU infrastructure</strong> via Cloudflare D1&rsquo;s EU jurisdiction setting. No pupil data is routed through US infrastructure.</p>
+          <p>morren.uk and all web tools are hosted on <strong>Cloudflare Pages</strong> (Cloudflare, Inc., US). No pupil data is transmitted to Cloudflare infrastructure &mdash; all tools that handle pupil data store it locally on the teacher&rsquo;s device.</p>
           <p>Full details of all processors and transfer safeguards are in <a href="#processors">Section&nbsp;8</a> below.</p>
         </section>
 
@@ -545,8 +537,8 @@
               <tr>
                 <td><strong>Cloudflare, Inc.</strong></td>
                 <td>Hosting, CDN, Workers, D1 database, KV storage, Web Analytics</td>
-                <td>Traffic metrics (morren.uk); timetable data (Visual TT); teacher and pupil data (Class Points Tracker)</td>
-                <td>US company; EU infrastructure used for D1 (Class Points Tracker)</td>
+                <td>Traffic metrics (morren.uk); timetable data (Visual TT)</td>
+                <td>US company; EU edge network used for morren.uk and Visual TT</td>
                 <td>UK-US Data Bridge; Cloudflare DPA</td>
               </tr>
               <tr>
@@ -574,9 +566,10 @@
           <h2>International <em>transfers.</em></h2>
           <p>Some of the processors above are US companies. Under UK GDPR, transfers of personal data outside the UK require appropriate safeguards.</p>
           <ul>
-            <li><strong>Cloudflare, Firebase, Apple:</strong> covered by the UK-US Data Bridge, where applicable. Cloudflare&rsquo;s D1 database for Class Points Tracker is pinned to EU infrastructure, avoiding a UK-to-US transfer for the most sensitive data.</li>
+            <li><strong>Cloudflare, Firebase, Apple:</strong> covered by the UK-US Data Bridge, where applicable. No pupil data is transmitted to Cloudflare &mdash; all tools that handle pupil data are fully offline.</li>
             <li><strong>iPad Dashboard:</strong> no transfers at all (fully offline).</li>
             <li><strong>SFL Tracker:</strong> no transfers. Fully offline &mdash; data stays in a local .db file on the teacher&rsquo;s device.</li>
+            <li><strong>Class Points Tracker:</strong> no transfers. Fully offline &mdash; data stays in a local .db file on the teacher&rsquo;s device.</li>
           </ul>
           <p>I have reviewed each processor against the ICO&rsquo;s transfer risk assessment guidance and maintain records of these assessments.</p>
         </section>
@@ -617,7 +610,7 @@
             </li>
           </ul>
 
-          <p><strong>Pupil data rights:</strong> where data about a child is processed on a school&rsquo;s instruction (Class Points Tracker), the school is the data controller. Rights requests relating to pupils should be directed to the school in the first instance.</p>
+          <p><strong>Pupil data rights:</strong> all Morren tools store pupil data locally on the teacher&rsquo;s device. Mark Morren holds no pupil data and cannot fulfil pupil data rights requests directly. Any such requests should be directed to the school, who control the data.</p>
         </section>
 
         <!-- SECTION 10: COMPLAINTS -->
@@ -638,7 +631,7 @@
           <p>I review this notice at least annually and whenever a significant change is made to a tool or the way data is processed. The &ldquo;last updated&rdquo; date below shows when this version was published. Where changes are material, I&rsquo;ll post a brief note on morren.uk.</p>
         </section>
 
-        <p class="meta">Last updated: 1 May 2026 &mdash; v2.4 (SFL Tracker migrated to on-device SQLite; Visual TT offline support)</p>
+        <p class="meta">Last updated: 1 May 2026 &mdash; v2.5 (Class Points Tracker migrated to on-device SQLite; no tools now use server-side pupil data storage)</p>
         <p class="back"><a href="/">&larr; Back to morren.uk</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms of Use</a></p>
       </div><!-- /priv-content -->
 
